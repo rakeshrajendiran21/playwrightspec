@@ -1,0 +1,60 @@
+import {test} from '@playwright/test'
+test('task',async ({page})=>{
+    await page.goto('https://demo.automationtesting.in/Register.html')
+const firstName = await page.locator('//input[@placeholder="First Name"]')
+firstName.fill('rakesh')
+const lastName = await page.locator('//input[@placeholder="Last Name"]')
+lastName.fill('r')
+const Address = await page.locator("//textarea[contains(@'class='form-control ng-valid ng-touched')]")
+Address.fill('chennai')
+const Email = await page.locator("//input[contains(@class='form-control ng-valid-email ng-touched ng-dirty')]")
+Email.fill('rakesh@gmail.com')
+const Email1 = await page.locator('//input[@type="email"]')
+console.log(await Email1.getAttribute('required'))
+console.log(await Email1.getAttribute('pattern'))
+const Ph = await page.locator('//input[@type="tel"]')
+Ph.fill(123)
+await Ph.getAttribute('required')
+await Ph.getAttribute('pattern')
+
+
+const Radio = page.locator('//input[@value="Male"]')
+const R1 = Radio.check()
+console.log('radiobutton',R1)
+
+
+const checkbox = page.locator('//input[@type="checkbox"]')
+const ch = checkbox.check()
+console.log('ch',ch)
+
+
+const lang = page.locator('//multi-select[@id="msdd"]')
+await lang.selectOption([{index:1},{index:2}])
+const lang1=lang.locator('option:checked').allTextContents()
+const skill = await page.locator('//select[@id="Skills"]')
+const selectedskills = await skill.selectOption({index:1})
+console.log('selectedskills',selectedskills)
+
+const country = await page.locator('//select[@id="countries"]')
+country.selectOption()
+const selectCountry=await page.locator('//select[@id="country"]')
+await selectCountry.selectOption({index:1})
+const selectedCountry = await selectCountry.inputValue()
+console.log('selectedcountry',selectedCountry)
+
+const year =await page.locator('//select[@placeholder="Year"]')
+ await year.selectOption('1991')
+const selectedyear = await year.locator().inputValue()
+const month = await page.locator('//select[@placeholder="Month"]')
+await month.selectOption('June')
+const day = page.locator('//select[@placeholder="Day"]')
+const PassWord = await page.locator('//input[@id="firstpassword"]')
+PassWord.fill('Admin@123')
+const confirmPass = await page.locator('//input[@id="secondpassword"]')
+await page.fill('Admin@123')
+const submit = await page.locator('//button[@id="submitbtn"]')
+submit.click()
+const Refresh = page.locator('//button[@id="Button1"]')
+Refresh.click()
+
+})
