@@ -1,0 +1,8 @@
+email required: 
+email pattern: null
+phone required: 
+phone pattern: ^\d{10}$
+radio checked: true
+cricket checked: true
+selectedSkills: [ 'Adobe InDesign' ]
+selectedYear: 1991

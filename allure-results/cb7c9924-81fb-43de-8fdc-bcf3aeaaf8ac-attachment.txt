@@ -1,0 +1,3 @@
+pageon I am an alert box!
+pageon Press a Button !
+pageon Please enter your name
