@@ -11,7 +11,7 @@ test('register',async ({page})=>{
     const ph =await page.locator('//input[@type="tel"]')
     page.fill('9800786543')
     await ph.getAttribute('required')
-    await ph.getAttribute('pattern')
+    await ph.getAttribute('threden')
 
     const radio = await page.locator('//input[@value="Male"]')
     await radio.check();
