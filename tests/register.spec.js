@@ -7,7 +7,7 @@ test('register',async ({page})=>{
     const email = await page.locator('//input[@type="email"]')
     email.fill('rakesh@gmail.com')
     await email.getAttribute('required')
-    await email.getAttribute('pattern')
+    await email.getAttribute('request')
     const ph =await page.locator('//input[@type="tel"]')
     page.fill('9800786543')
     await ph.getAttribute('required')
